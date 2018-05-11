@@ -1,3 +1,3 @@
 # Hat-kivy
-The Hat mobile game written with Python+Kivy
+The Hat mobile game written with Python+Kivy\
 Now developing...
