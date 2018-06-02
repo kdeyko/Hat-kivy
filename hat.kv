@@ -1,0 +1,352 @@
+#:import hex kivy.utils.get_color_from_hex
+#:import Factory kivy.factory.Factory
+#:import tr __main__.tr
+
+<LangPopup>:
+    title: tr._('Language')
+    title_size: 0.08 * self.width
+    size_hint: (.5, .3)
+    DefBL:
+        DefBut:
+            text: tr._('English')
+            background_color: hex('#115F73')
+            on_release: root.change_lang(*args)
+        DefBut:
+            text: tr._('Russian')
+            background_color: hex('#115F73')
+            on_release: root.change_lang(*args)
+
+<DefBut@Button>:
+    background_normal: ''
+    font_size: 0.1 * self.width
+    bold: True
+
+<DefBL@BoxLayout>:
+    orientation:'vertical'
+    padding: [30, 30]
+    spacing: 5
+
+<DefLabel@Label>:
+    font_size: 0.07 * self.width
+    bold: True
+
+<TBWords@ToggleButton>:
+    allow_no_selection: False
+    font_size: 0.1 * self.parent.width
+    bold: True
+    on_press: app.settings_tb(*args)
+    background_color: hex('#115F73')
+    background_normal: ''
+    group: 'wordsCount'
+
+<TBTime@ToggleButton>:
+    allow_no_selection: False
+    font_size: 0.1 * self.parent.width
+    bold: True
+    on_press: app.settings_tb(*args)
+    background_color: hex('#115F73')
+    background_normal: ''
+    group: 'roundtime'
+
+<MarkupLabel@Label>:
+    text_size: self.size
+    markup: True
+    halign: 'left'
+    valign: 'center'
+
+
+<SM>:
+    StartMenu:
+    About:
+    SettingsScreen:
+    Rules:
+    RoundInfo:
+    TeamNO:
+    Game:
+    NoInternet:
+    Timeout:
+    EndOfRound:
+    EndGame:
+    Results:
+
+<NoInternet>:
+    name: 'noinet'
+    DefBL:
+        MarkupLabel:
+            bold: True
+            halign: 'center'
+            font_size: 0.1 * self.width
+            text: tr._('You must connect to the Internet for the first launch')
+        Button:
+            font_size: 0.1 * self.width
+            size_hint: (1, .1)
+            text: tr._('EXIT')
+            on_release: app.stop()
+
+<StartMenu>:
+    name: 'startmenu'
+
+    DefBL:
+        DefBut:
+            text: tr._('Play')
+            background_color: hex('#005800')
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'roundinfo'
+        DefBut:
+            text: tr._('Settings')
+            background_color: hex('#115F73')
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'settings'
+        DefBut:
+            text: tr._('Rules')
+            background_color: hex('#A80909')
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'rules'
+        DefBut:
+            text: tr._('About')
+            background_color: hex('#2B1DA9')
+            on_release:
+                root.manager.transition.direction = 'up'
+                root.manager.current = 'about'
+
+
+<SettingsScreen>:
+    name: 'settings'
+
+    DefBL:
+        DefBut:
+            text: tr._('Back')
+            background_color: hex('#115F73')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'startmenu'
+        DefLabel:
+            text: tr._('Words amount for 1 game:')
+            size_hint: (1, .2)
+        BoxLayout:
+            pos_hint: {'center_x': 0.5}
+            spacing: 5
+            size_hint: (.5, .1)
+            TBWords:
+                text: '30'
+                state: app.words_tb_dict[int(self.text)]
+            TBWords:
+                text: '60'
+                state: app.words_tb_dict[int(self.text)]
+            TBWords:
+                text: '90'
+                state: app.words_tb_dict[int(self.text)]
+        DefLabel:
+            text: tr._('Time for 1 round (seconds):')
+            size_hint: (1, .2)
+        BoxLayout:
+            pos_hint: {'center_x': 0.5}
+            spacing: 5
+            size_hint: (.5, .1)
+            TBTime:
+                text: '30'
+                state: app.time_tb_dict[int(self.text)]
+            TBTime:
+                text: '45'
+                state: app.time_tb_dict[int(self.text)]
+            TBTime:
+                text: '60'
+                state: app.time_tb_dict[int(self.text)]
+        DefLabel:
+            text: tr._('Language:')
+            size_hint: (1, .2)
+        DefBut:
+            pos_hint: {'center_x': 0.5}
+            size_hint: (.5, .1)
+            background_color: hex('#115F73')
+            text: tr._(app.lang_name)
+            on_release: Factory.LangPopup().open()
+        DefLabel:
+            text: tr._('Sound:')
+            size_hint: (1, .2)
+        SoundTB:
+            size_hint: (1, .2)
+            state: app.sound_tb
+
+<Rules>:
+    name: 'rules'
+
+    DefBL:
+        DefBut:
+            text: tr._('Back')
+            background_color: hex('#A80909')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'startmenu'
+        ScrollView:
+            MarkupLabel:
+                text: tr._('\nThe Hat is the fun and hilarious word game you can play with your friends!\n\nFirst of all - split into 2 teams: every team must contain 2+ members.\n\nThe main idea is to guess words from your friend\'s clues or explain them on your turn before the time runs out. While first team is playing the second is waiting for it\'s turn.\n\nIf the word was guessed press the "Guessed!" button and this word will fly away from the Hat and your team will get +1 score point. Otherwise if the word is too hard for you right now - press the "Skip..." button and this word will stay in the Hat until it will be guessed.\n\nThe game will continue until every word will be guessed.\n\nThere are 3 rounds in the game: TALK, PANTOMIME and ASSOCIATIONS. You will see short description of each of them during the game. In every new round the words come back to the Hat from the previous round.\n\nWins the team that gets more score points.\n\nThat\'s all!\nHave fun!')
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: 0.05 * self.width
+                text_size: self.width, None
+
+<About>:
+    name: 'about'
+
+    DefBL:
+        DefBut:
+            text: tr._('Back')
+            background_color: hex('#2B1DA9')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'down'
+                root.manager.current = 'startmenu'
+        ScrollView:
+            MarkupLabel:
+                text: tr._('\nThis game was created using Python and Kivy. Yes it\'s possible!\nThe main idea is based on the iOS app "Shlyapa new".\n\nIf you like the game please take a look at game project on [b][u][color=2473e2][ref=https://github.com/kdeyko/Hat-kivy]GitHub[/ref][/color][/u][/b].\n\nContact me:\n[u][color=2473e2][ref=mailto:kdeyko@gmail.com]kdeyko@gmail.com[/ref][/color][/u]\n\nDonations:\n[b]BTC:[/b]\n16hqyeFKLjMf8ReNQV318xk6YSQUPNUBTt\n[b]Yandex.Money:[/b]\n410011006623328\n\n\n\n\n[size=20]Content version: {ver}[/size]').format(ver=root.version)
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: 0.05 * self.width
+                text_size: self.width, None
+                on_ref_press: root.openlink(*args)
+
+
+<RoundInfo>:
+    name: 'roundinfo'
+    roundinfo_label: roundinfo_label
+
+    DefBL:
+#        DefBut:
+#            text: tr._('Back')
+#            background_color: hex('#2B1DA9')
+#            size_hint: (1, .2)
+#            on_release:
+#                root.manager.transition.direction = 'down'
+#                root.manager.current = 'startmenu'
+        MarkupLabel:
+            font_size: 0.07 * self.width
+            id: roundinfo_label
+        DefBut:
+            text: tr._('Got it')
+            size_hint: (1, .2)
+            background_color: hex('#005800')
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'teamno'
+
+<TeamNO>:
+    name: 'teamno'
+    teamno_label: teamno_label
+
+    DefBL:
+        MarkupLabel:
+            id: teamno_label
+            font_size: 0.1 * self.width
+        DefBut:
+            text: tr._('Let\'s start!')
+            size_hint: (1, .2)
+            background_color: hex('#005800')
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'game'
+
+<Game>:
+    name: 'game'
+    timer: timer
+    words_panel: words_panel
+
+    DefBL:
+        DefLabel:
+            id: timer
+            size_hint: (1, .1)
+        MarkupLabel:
+            id: words_panel
+            font_size: 0.12 * self.width
+            halign: 'center'
+        BoxLayout:
+            size_hint: (1, .3)
+            spacing: 20
+            DefBut:
+                font_size: 0.2 * self.width
+                text: tr._('Skip...')
+                background_color: hex('#A80909')
+                on_release: root.skip()
+            DefBut:
+                font_size: 0.2 * self.width
+                text: tr._('Guessed!')
+                background_color: hex('#005800')
+                on_release: root.guessed()
+
+<Timeout>:
+    name: 'timeout'
+
+    DefBL:
+        DefLabel:
+            text: tr._('Time\'s up!')
+            size_hint: (1, .1)
+            font_size: 0.12 * self.width
+        DefLabel:
+            text: tr._('Guessed:\n{count}').format(count=root.cur_score)
+            font_size: 0.12 * self.width
+            halign: 'center'
+        DefBut:
+            text: tr._('Next team')
+            background_color: hex('#005800')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'teamno'
+
+<EndOfRound>:
+    name: 'endofround'
+
+    DefBL:
+        DefBut:
+            text: tr._('Finish Game')
+            background_color: hex('#005800')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'results'
+        MarkupLabel:
+            text: tr._('There are no more words in the Hat. It\'s time to go to the next round.')
+            font_size: 0.08 * self.width
+        DefBut:
+            text: tr._('Next Round')
+            background_color: hex('#005800')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'roundinfo'
+
+<EndGame>:
+    name: 'endgame'
+
+    DefBL:
+        MarkupLabel:
+            text: tr._('There are no more words in the Hat. It\'s time to see who\'s the winner and who\'s the loser.')
+            font_size: 0.08 * self.width
+        DefBut:
+            text: tr._('Results')
+            background_color: hex('#005800')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'results'
+
+<Results>:
+    name: 'results'
+    results_grid: results_grid
+
+    DefBL:
+        GridLayout:
+            id: results_grid
+        DefBut:
+            text: tr._('Main Menu')
+            background_color: hex('#005800')
+            size_hint: (1, .2)
+            on_release:
+                root.set_def()
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'startmenu'

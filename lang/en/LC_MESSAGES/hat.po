@@ -1,0 +1,254 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-05-29 08:03+UTC\n"
+"PO-Revision-Date: 2018-05-29 11:09+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.0.7\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#: hat.kv:5
+msgid "Language"
+msgstr ""
+
+#: hat.kv:10 main.py:41 main.py:90
+msgid "English"
+msgstr ""
+
+#: hat.kv:14 main.py:41 main.py:92
+msgid "Russian"
+msgstr ""
+
+#: hat.kv:78
+msgid "You must connect to the Internet for the first launch"
+msgstr ""
+
+#: hat.kv:82
+msgid "EXIT"
+msgstr ""
+
+#: hat.kv:90
+msgid "Play"
+msgstr ""
+
+#: hat.kv:96
+msgid "Settings"
+msgstr ""
+
+#: hat.kv:102
+msgid "Rules"
+msgstr ""
+
+#: hat.kv:108
+msgid "About"
+msgstr ""
+
+#: hat.kv:120 hat.kv:179 hat.kv:198
+msgid "Back"
+msgstr ""
+
+#: hat.kv:127
+msgid "Words amount for 1 game:"
+msgstr ""
+
+#: hat.kv:143
+msgid "Time for 1 round (seconds):"
+msgstr ""
+
+#: hat.kv:159
+msgid "Language:"
+msgstr ""
+
+#: hat.kv:168
+msgid "Sound:"
+msgstr ""
+
+#: hat.kv:187
+msgid ""
+"\n"
+"The Hat is the fun and hilarious word game you can play with your friends!\n"
+"\n"
+"First of all - split into 2 teams: every team must contain 2+ members.\n"
+"\n"
+"The main idea is to guess words from your friend's clues or explain them on "
+"your turn before the time runs out. While first team is playing the second "
+"is waiting for it's turn.\n"
+"\n"
+"If the word was guessed press the \"Guessed!\" button and this word will fly "
+"away from the Hat and your team will get +1 score point. Otherwise if the "
+"word is too hard for you right now - press the \"Skip...\" button and this "
+"word will stay in the Hat until it will be guessed.\n"
+"\n"
+"The game will continue until every word will be guessed.\n"
+"\n"
+"There are 3 rounds in the game: TALK, PANTOMIME and ASSOCIATIONS. You will "
+"see short description of each of them during the game. In every new round "
+"the words come back to the Hat from the previous round.\n"
+"\n"
+"Wins the team that gets more score points.\n"
+"\n"
+"That's all!\n"
+"Have fun!"
+msgstr ""
+
+#: hat.kv:206
+msgid ""
+"\n"
+"This game was created using Python and Kivy. Yes it's possible!\n"
+"The main idea is based on the iOS app \"Shlyapa new\".\n"
+"\n"
+"If you like the game please take a look at game project on [b][u]"
+"[color=2473e2][ref=https://github.com/kdeyko/Hat-kivy]GitHub[/ref][/color][/"
+"u][/b].\n"
+"\n"
+"Contact me:\n"
+"[u][color=2473e2][ref=mailto:kdeyko@gmail.com]kdeyko@gmail.com[/ref][/color]"
+"[/u]\n"
+"\n"
+"Donations:\n"
+"[b]BTC:[/b]\n"
+"16hqyeFKLjMf8ReNQV318xk6YSQUPNUBTt\n"
+"[b]Yandex.Money:[/b]\n"
+"410011006623328\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"[size=20]Content version: {ver}[/size]"
+msgstr ""
+
+#: hat.kv:223
+msgid "Got it"
+msgstr ""
+
+#: hat.kv:239
+msgid "Let's start!"
+msgstr ""
+
+#: hat.kv:264
+msgid "Skip..."
+msgstr ""
+
+#: hat.kv:269
+msgid "Guessed!"
+msgstr ""
+
+#: hat.kv:278
+msgid "Time's up!"
+msgstr ""
+
+#: hat.kv:282
+msgid ""
+"Guessed:\n"
+"{count}"
+msgstr ""
+
+#: hat.kv:286
+msgid "Next team"
+msgstr ""
+
+#: hat.kv:298
+msgid "Finish Game"
+msgstr ""
+
+#: hat.kv:305
+msgid "There are no more words in the Hat. It's time to go to the next round."
+msgstr ""
+
+#: hat.kv:308
+msgid "Next Round"
+msgstr ""
+
+#: hat.kv:320
+msgid ""
+"There are no more words in the Hat. It's time to see who's the winner and "
+"who's the loser."
+msgstr ""
+
+#: hat.kv:323
+msgid "Results"
+msgstr ""
+
+#: hat.kv:338
+msgid "Main Menu"
+msgstr ""
+
+#: main.py:130
+msgid ""
+"[b]ROUND 1\n"
+"\n"
+"TALK [/b]\n"
+"\n"
+"In this round you should explain words from the Hat using just your "
+"[b]TALKING[/b] skills.\n"
+"Do NOT use words of the same root!"
+msgstr ""
+
+#: main.py:140
+msgid ""
+"[b]ROUND 2\n"
+"\n"
+"PANTOMIME[/b]\n"
+"\n"
+"In this round you should explain words from the Hat using only [b]GESTURES[/"
+"b] of your body.\n"
+"Complete silence!"
+msgstr ""
+
+#: main.py:150
+msgid ""
+"[b]ROUND 3\n"
+"\n"
+"ASSOCIATIONS[/b]\n"
+"\n"
+"In this round you should explain words from the Hat using\n"
+"[b]JUST ONE WORD.[/b]"
+msgstr ""
+
+#: main.py:181
+msgid ""
+"[b]Now plays the\n"
+"Team # {num}[/b]"
+msgstr ""
+
+#: main.py:206 main.py:245
+msgid "Time left: "
+msgstr ""
+
+#: main.py:294
+msgid ""
+"Team\n"
+"#"
+msgstr ""
+
+#: main.py:299
+msgid ""
+"Round 1\n"
+"[b]Talk[/b]"
+msgstr ""
+
+#: main.py:301
+msgid ""
+"Round 2\n"
+"[b]Pantomime[/b]"
+msgstr ""
+
+#: main.py:303
+msgid ""
+"Round 3\n"
+"[b]One Word[/b]"
+msgstr ""
+
+#: main.py:305
+msgid "[color=e6e600][b]TOTAL[b][/color]"
+msgstr ""

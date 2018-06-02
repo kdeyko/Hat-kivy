@@ -1,0 +1,334 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-05-29 08:03+UTC\n"
+"PO-Revision-Date: 2018-05-31 13:06+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.0.7\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru_RU\n"
+
+#: hat.kv:5
+msgid "Language"
+msgstr "Язык"
+
+#: hat.kv:10 main.py:41 main.py:90
+msgid "English"
+msgstr "Английский"
+
+#: hat.kv:14 main.py:41 main.py:92
+msgid "Russian"
+msgstr "Русский"
+
+#: hat.kv:78
+msgid "You must connect to the Internet for the first launch"
+msgstr "Для первого запуска необходимо подключиться к Интернету"
+
+#: hat.kv:82
+msgid "EXIT"
+msgstr "ВЫХОД"
+
+#: hat.kv:90
+msgid "Play"
+msgstr "Играть"
+
+#: hat.kv:96
+msgid "Settings"
+msgstr "Настройки"
+
+#: hat.kv:102
+msgid "Rules"
+msgstr "Правила"
+
+#: hat.kv:108
+msgid "About"
+msgstr "Об игре"
+
+#: hat.kv:120 hat.kv:179 hat.kv:198
+msgid "Back"
+msgstr "Назад"
+
+#: hat.kv:127
+msgid "Words amount for 1 game:"
+msgstr "Количество слов для 1 игры:"
+
+#: hat.kv:143
+msgid "Time for 1 round (seconds):"
+msgstr "Время раунда (секунд):"
+
+#: hat.kv:159
+msgid "Language:"
+msgstr "Язык:"
+
+#: hat.kv:168
+msgid "Sound:"
+msgstr "Звук:"
+
+#: hat.kv:187
+msgid ""
+"\n"
+"The Hat is the fun and hilarious word game you can play with your friends!\n"
+"\n"
+"First of all - split into 2 teams: every team must contain 2+ members.\n"
+"\n"
+"The main idea is to guess words from your friend's clues or explain them on "
+"your turn before the time runs out. While first team is playing the second "
+"is waiting for it's turn.\n"
+"\n"
+"If the word was guessed press the \"Guessed!\" button and this word will fly "
+"away from the Hat and your team will get +1 score point. Otherwise if the "
+"word is too hard for you right now - press the \"Skip...\" button and this "
+"word will stay in the Hat until it will be guessed.\n"
+"\n"
+"The game will continue until every word will be guessed.\n"
+"\n"
+"There are 3 rounds in the game: TALK, PANTOMIME and ASSOCIATIONS. You will "
+"see short description of each of them during the game. In every new round "
+"the words come back to the Hat from the previous round.\n"
+"\n"
+"Wins the team that gets more score points.\n"
+"\n"
+"That's all!\n"
+"Have fun!"
+msgstr ""
+"\n"
+"Шляпа – это веселая игра, в которую можно играть с друзьями!\n"
+"\n"
+"Для начала разделитесь на 2 команды: по 2+ человек в каждой.\n"
+"\n"
+"Суть игры - отгадывать слова по подсказкам друзей или объяснять слова в свой "
+"ход пока не истечет время. Пока одна команда играет, вторая ожидает своего "
+"хода.\n"
+"\n"
+"Если слово отгадано, нажмите кнопку \"Угадано!\", тогда это слово улетит из "
+"Шляпы, а ваша команда получит +1 очко. Если слово сложное, его можно "
+"пропустить, нажав кнопку \"Пропуск...\", тогда оно останется в Шляпе, пока "
+"не будет отгадано.\n"
+"\n"
+"Игра продолжается, пока все слова не будут отгаданы.\n"
+"\n"
+"В игре 3 раунда: ГОВОРИЛКА, ПАНТОМИМА и АССОЦИАЦИИ. По ходу игры вы увидите "
+"короткое описание каждого раунда. В каждом новом раунде слова возвращаются в "
+"Шляпу из предыдущего раунда. \n"
+"\n"
+"Побеждает команда, набравшая больше очков.\n"
+"\n"
+"На этом все!\n"
+"Хорошей игры!"
+
+#: hat.kv:206
+msgid ""
+"\n"
+"This game was created using Python and Kivy. Yes it's possible!\n"
+"The main idea is based on the iOS app \"Shlyapa new\".\n"
+"\n"
+"If you like the game please take a look at game project on [b][u]"
+"[color=2473e2][ref=https://github.com/kdeyko/Hat-kivy]GitHub[/ref][/color][/"
+"u][/b].\n"
+"\n"
+"Contact me:\n"
+"[u][color=2473e2][ref=mailto:kdeyko@gmail.com]kdeyko@gmail.com[/ref][/color]"
+"[/u]\n"
+"\n"
+"Donations:\n"
+"[b]BTC:[/b]\n"
+"16hqyeFKLjMf8ReNQV318xk6YSQUPNUBTt\n"
+"[b]Yandex.Money:[/b]\n"
+"410011006623328\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"[size=20]Content version: {ver}[/size]"
+msgstr ""
+"\n"
+"Эта игра создана с помощью Python и Kivy. Да, это возможно!\n"
+"Идея игры основана на iOS приложении \"Шляпа new\".\n"
+"\n"
+"Если вам понравилось приложение, милости прошу на страничку игры на [b][u]"
+"[color=2473e2][ref=https://github.com/kdeyko/Hat-kivy]GitHub[/ref][/color][/"
+"u][/b].\n"
+"\n"
+"Связаться со мной:\n"
+"[u][color=2473e2][ref=mailto:kdeyko@gmail.com]kdeyko@gmail.com[/ref][/color]"
+"[/u]\n"
+"\n"
+"Донаты:\n"
+"[b]BTC:[/b]\n"
+"16hqyeFKLjMf8ReNQV318xk6YSQUPNUBTt\n"
+"[b]Яндекс.Деньги:[/b]\n"
+"410011006623328\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"[size=20]Версия контента: {ver}[/size]"
+
+#: hat.kv:223
+msgid "Got it"
+msgstr "Понятно"
+
+#: hat.kv:239
+msgid "Let's start!"
+msgstr "Поехали!"
+
+#: hat.kv:264
+msgid "Skip..."
+msgstr "Пропуск..."
+
+#: hat.kv:269
+msgid "Guessed!"
+msgstr "Угадано!"
+
+#: hat.kv:278
+msgid "Time's up!"
+msgstr "Время вышло!"
+
+#: hat.kv:282
+msgid ""
+"Guessed:\n"
+"{count}"
+msgstr ""
+"Угадано:\n"
+"{count}"
+
+#: hat.kv:286
+msgid "Next team"
+msgstr "Следующая команда"
+
+#: hat.kv:298
+msgid "Finish Game"
+msgstr "Закончить игру"
+
+#: hat.kv:305
+msgid "There are no more words in the Hat. It's time to go to the next round."
+msgstr "В Шляпе не осталось слов. Пора переходить к следующему раунду."
+
+#: hat.kv:308
+msgid "Next Round"
+msgstr "Следующий раунд"
+
+#: hat.kv:320
+msgid ""
+"There are no more words in the Hat. It's time to see who's the winner and "
+"who's the loser."
+msgstr ""
+"В Шляпе не осталось слов. Пора узнать кто сегодня на коне, а кто продул."
+
+#: hat.kv:323
+msgid "Results"
+msgstr "Результаты"
+
+#: hat.kv:338
+msgid "Main Menu"
+msgstr "Главное меню"
+
+#: main.py:130
+msgid ""
+"[b]ROUND 1\n"
+"\n"
+"TALK [/b]\n"
+"\n"
+"In this round you should explain words from the Hat using just your "
+"[b]TALKING[/b] skills.\n"
+"Do NOT use words of the same root!"
+msgstr ""
+"[b]РАУНД 1\n"
+"\n"
+"ГОВОРИЛКА [/b]\n"
+"\n"
+"В этом раунде вам нужно объяснять слова из Шляпы, используя только ваше "
+"умение [b]ГОВОРИТЬ[/b].\n"
+"НЕ используйте однокоренные слова!"
+
+#: main.py:140
+msgid ""
+"[b]ROUND 2\n"
+"\n"
+"PANTOMIME[/b]\n"
+"\n"
+"In this round you should explain words from the Hat using only [b]GESTURES[/"
+"b] of your body.\n"
+"Complete silence!"
+msgstr ""
+"[b]РАУНД 2\n"
+"\n"
+"ПАНТОМИМА[/b]\n"
+"\n"
+"В этом раунде вам нужно объяснять слова из Шляпы, используя только [b]ЖЕСТЫ[/"
+"b] вашего тела.\n"
+"Полная тишина!"
+
+#: main.py:150
+msgid ""
+"[b]ROUND 3\n"
+"\n"
+"ASSOCIATIONS[/b]\n"
+"\n"
+"In this round you should explain words from the Hat using\n"
+"[b]JUST ONE WORD.[/b]"
+msgstr ""
+"[b]РАУНД 3\n"
+"\n"
+"АССОЦИАЦИИ[/b]\n"
+"\n"
+"В этом раунде вам нужно объяснять слова из Шляпы, используя только\n"
+"[b]ОДНО СЛОВО.[/b]"
+
+#: main.py:181
+msgid ""
+"[b]Now plays the\n"
+"Team # {num}[/b]"
+msgstr ""
+"[b]Сейчас играет\n"
+"Команда # {num}[/b]"
+
+#: main.py:206 main.py:245
+msgid "Time left: "
+msgstr "Время: "
+
+#: main.py:294
+msgid ""
+"Team\n"
+"#"
+msgstr ""
+"Команда\n"
+"#"
+
+#: main.py:299
+msgid ""
+"Round 1\n"
+"[b]Talk[/b]"
+msgstr ""
+"Раунд 1\n"
+"[b]Говорилка[/b]"
+
+#: main.py:301
+msgid ""
+"Round 2\n"
+"[b]Pantomime[/b]"
+msgstr ""
+"Раунд 2\n"
+"[b]Пантомима[/b]"
+
+#: main.py:303
+msgid ""
+"Round 3\n"
+"[b]One Word[/b]"
+msgstr ""
+"Раунд 3\n"
+"[b]1 Слово[/b]"
+
+#: main.py:305
+msgid "[color=e6e600][b]TOTAL[b][/color]"
+msgstr "[color=e6e600][b]ИТОГО[b][/color]"
