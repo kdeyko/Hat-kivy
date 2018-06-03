@@ -11,7 +11,6 @@ from shutil import copyfile
 
 from kivy.app import App
 from kivy.properties import ObjectProperty, DictProperty, StringProperty, NumericProperty
-from kivy.core.audio import SoundLoader
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ToggleButtonBehavior
@@ -20,7 +19,16 @@ from kivy.uix.label import Label
 from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.lang import Observable
+from kivy.core.audio import SoundLoader
+from kivy.core.window import Window
+from kivy.logger import Logger
+from kivy.utils import platform
 
+if platform == 'android':
+    try:
+        import jnius
+    except ImportError:
+        Logger.critical('looks like it\'s not Android')
 try:
     import sys
     reload(sys)
@@ -515,7 +523,30 @@ class HatApp(App):
 
         Context.instance.version = str(self.loc_v)
 
+        Window.bind(on_keyboard=self.my_key_handler)
+
         return self.sm
+
+    def my_key_handler(self, window, key, *args):
+        if key == 27:
+            Logger.critical('Pressed Back Button!')
+            if self.sm.current in ['settings', 'rules', 'about']:
+                self.sm.current = 'startmenu'
+            else:
+                Logger.critical('Check if it\'s android')
+                if platform == 'android':
+                    Logger.critical('platform is Android')
+                    PythonActivity = jnius.autoclass('org.renpy.android.PythonActivity')
+                    Intent = jnius.autoclass('android.content.Intent')
+                    intent = Intent(Intent.ACTION_MAIN)
+                    intent.addCategory(Intent.CATEGORY_HOME)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+                    currentActivity = jnius.cast('android.app.Activity', PythonActivity.mActivity)
+                    currentActivity.startActivity(intent)
+                    return True
+            return True
+        return False
 
 
 if __name__ == "__main__":
