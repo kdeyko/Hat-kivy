@@ -40,7 +40,7 @@ You are welcome to leave comments and create issues.
 Special thanks to my wife for help and inspiration.
 
 ### Donations:
-The game is absolutely free to use and modification.
+The game is absolutely free to use and modificate.  
 If you like my work I'd really appreciate your donation:  
 
 **BTC**: 16hqyeFKLjMf8ReNQV318xk6YSQUPNUBTt  
