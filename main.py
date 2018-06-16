@@ -407,9 +407,6 @@ class Results(Screen):
 
 
 class HatApp(App):
-    settings = json.load(open('settings.json', 'r'))
-    loc_v = settings['version']
-
     words_tb_dict = DictProperty({})
     time_tb_dict = DictProperty({})
     lang_name = StringProperty()
@@ -420,7 +417,9 @@ class HatApp(App):
     @staticmethod
     def update_content():
         for lang in url_content:
-            filename = 'content/content_' + lang + '.txt'
+            filename = user_data_dir + '/content/content_' + lang + '.txt'
+            Logger.critical('====================')
+            Logger.critical(filename)
 
             cont_file = open(filename, 'w')
             r = requests.get(url_content[lang])
@@ -432,19 +431,19 @@ class HatApp(App):
 
     @staticmethod
     def linecount():
-        filename = 'content/content_' + Context.instance.lang + '.txt'
+        filename = user_data_dir + '/content/content_' + Context.instance.lang + '.txt'
         return len(open(filename).readlines())
 
     @staticmethod
     def restore_content():
-        cont_backup = 'content/content_' + Context.instance.lang + '.txt.bak'
-        cont_file = 'content/content_' + Context.instance.lang + '.txt'
+        cont_backup = user_data_dir + '/content/content_' + Context.instance.lang + '.txt.bak'
+        cont_file = user_data_dir + '/content/content_' + Context.instance.lang + '.txt'
         copyfile(cont_backup, cont_file)
 
     @staticmethod
     def writeback_content():
         aftergamedict = Context.instance.fulldict[Context.instance.words:]
-        filename = 'content/content_' + Context.instance.lang + '.txt'
+        filename = user_data_dir + '/content/content_' + Context.instance.lang + '.txt'
         cont_file = open(filename, 'w')
         for word in aftergamedict:
             cont_file.write(word)
@@ -452,14 +451,15 @@ class HatApp(App):
 
     @staticmethod
     def create_fulldict():
-        filename = 'content/content_' + Context.instance.lang + '.txt'
+        filename = user_data_dir + '/content/content_' + Context.instance.lang + '.txt'
         cont_file = open(filename, 'r')
         Context.instance.fulldict = list(cont_file)
         cont_file.close()
 
     @staticmethod
     def update_json(key, val):
-        with open('settings.json', 'r+') as f:
+    	filename = user_data_dir + '/settings.json'
+        with open(filename, 'r+') as f:
             settings = json.load(f)
             settings[key] = val
             f.seek(0)
@@ -494,14 +494,18 @@ class HatApp(App):
 
     def build(self):
         Context.instance = Context()
-        Context.instance.time = self.settings['time']
-        Context.instance.words = self.settings['words']
-        Context.instance.lang = self.settings['language']
-        Context.instance.sound = self.settings['sound']
+        Context.instance.time = settings['time']
+        Context.instance.words = settings['words']
+        Context.instance.lang = settings['language']
+        Context.instance.sound = settings['sound']
 
-        if self.loc_v == 0:
-            if not os.path.exists('content'):
-                os.makedirs('content')
+        content_folder_path = user_data_dir + '/content'
+        Logger.critical(content_folder_path)
+
+        loc_v = settings['version']
+        if loc_v == 0:
+            if not os.path.exists(content_folder_path):
+                os.makedirs(content_folder_path)
 
             HatApp.try_set_system_locale()
 
@@ -513,15 +517,15 @@ class HatApp(App):
 
         try:
             update_v = int(requests.get(url_version).text)
-            if self.loc_v < update_v:
+            if loc_v < update_v:
                 HatApp.update_content()
                 HatApp.update_json('version', update_v)
-                self.loc_v = update_v
+                loc_v = update_v
         except requests.exceptions.RequestException:
-            if self.loc_v == 0:
+            if loc_v == 0:
                 self.sm.current = 'noinet'
 
-        Context.instance.version = str(self.loc_v)
+        Context.instance.version = str(loc_v)
 
         Window.bind(on_keyboard=self.my_key_handler)
 
@@ -548,7 +552,13 @@ class HatApp(App):
             return True
         return False
 
-
 if __name__ == "__main__":
     hat = HatApp()
+
+    user_data_dir = App.get_running_app().user_data_dir
+    settings_file = user_data_dir + '/settings.json'
+    if not os.path.isfile(settings_file):
+            copyfile('settings.json', settings_file)
+    settings = json.load(open(settings_file, 'r'))
+
     hat.run()
