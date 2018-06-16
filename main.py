@@ -224,7 +224,9 @@ class About(Screen):
 
 
 class RoundInfo(Screen):
+    roundinfo = ObjectProperty(None)
     roundinfo_label = ObjectProperty(None)
+    back_but_for_1st_round = ObjectProperty(None)
 
     def on_pre_enter(self):
 
@@ -238,6 +240,8 @@ class RoundInfo(Screen):
             shuffle(Context.instance.fulldict)
 
             Context.instance.gamedict = Context.instance.fulldict[:Context.instance.words]
+        else:
+            self.roundinfo.remove_widget(self.back_but_for_1st_round)
 
         Context.instance.rounddict = Context.instance.gamedict[:]
 
@@ -458,7 +462,7 @@ class HatApp(App):
 
     @staticmethod
     def update_json(key, val):
-    	filename = user_data_dir + '/settings.json'
+        filename = user_data_dir + '/settings.json'
         with open(filename, 'r+') as f:
             settings = json.load(f)
             settings[key] = val
@@ -535,6 +539,8 @@ class HatApp(App):
         if key == 27:
             Logger.critical('Pressed Back Button!')
             if self.sm.current in ['settings', 'rules', 'about']:
+                self.sm.current = 'startmenu'
+            if self.sm.current == 'roundinfo' and Context.instance.round == 1:
                 self.sm.current = 'startmenu'
             else:
                 Logger.critical('Check if it\'s android')

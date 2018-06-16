@@ -86,7 +86,9 @@
 <StartMenu>:
     name: 'startmenu'
 
-    DefBL:
+    BoxLayout:
+        orientation:'vertical'
+        spacing: 5
         DefBut:
             text: tr._('Play')
             background_color: hex('#005800')
@@ -214,16 +216,20 @@
 
 <RoundInfo>:
     name: 'roundinfo'
+    roundinfo: roundinfo
     roundinfo_label: roundinfo_label
+    back_but_for_1st_round: back_but_for_1st_round
 
     DefBL:
-#        DefBut:
-#            text: tr._('Back')
-#            background_color: hex('#2B1DA9')
-#            size_hint: (1, .2)
-#            on_release:
-#                root.manager.transition.direction = 'down'
-#                root.manager.current = 'startmenu'
+        id: roundinfo
+        DefBut:
+            id: back_but_for_1st_round
+            text: tr._('Back')
+            background_color: hex('#005800')
+            size_hint: (1, .2)
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'startmenu'
         MarkupLabel:
             font_size: 0.07 * self.width
             id: roundinfo_label
