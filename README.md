@@ -17,7 +17,7 @@ You can find complete rules inside the app.
 ## How can I get the app?
 The easiest way - grab a copy from [Releases](https://github.com/kdeyko/Hat-kivy/releases) page.  
 For now the only Android APK package is available.  
-iOS version can be compiled by yourself only for now. The code is adopted.  
+iOS version can be compiled by yourself only for now. The code is adopted. And you'll also need to add requests modole manually.  
 Use [kivy docs](https://kivy.org/docs/guide/packaging-ios.html) for compiling info.  
 
 ## How can I compile the app?
